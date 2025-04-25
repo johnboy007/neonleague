@@ -5,7 +5,7 @@ namespace NeonLeague;
 public class UserTeam
 {
     public const int MaxPlayers = 15;
-    private const int MaxBudget = 100;
+    public const int MaxBudget = 100;
     private const int MaxPlayersPerClub = 3;
 
     public UserTeam(string name)
