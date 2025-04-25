@@ -39,8 +39,15 @@ public class NeonLeagueService(ILogger<NeonLeagueService> logger, ITeamsBuilder 
 
                 if (userTeam.Players.Count != UserTeam.MaxPlayers) 
                     continue;
-                Console.Clear();
-                Console.WriteLine($"Congratulations! You have selected {userTeam.Players.Count} players.");
+                    Console.Clear();
+                Console.WriteLine("\n🎉 Team Selection Complete!");
+                Console.WriteLine("---------------------------------");
+                foreach (var player in userTeam.Players)
+                {
+                    Console.WriteLine($"{player.Name} - ${player.Price}M");
+                }
+                Console.WriteLine("---------------------------------");
+                Console.WriteLine($"Total Spent: ${UserTeam.MaxBudget - userTeam.Budget}M | Budget Left: ${userTeam.Budget}M");
                 break;
             } while (true);
 
@@ -84,7 +91,7 @@ public class NeonLeagueService(ILogger<NeonLeagueService> logger, ITeamsBuilder 
     private static void DisplayUserTeamDetails(UserTeam userTeam)
     {
         Console.WriteLine(
-            $"## Team {userTeam.Name} has {userTeam.Players.Count} players and a budget of �{userTeam.Budget} Million ##");
+            $"## Team {userTeam.Name} has {userTeam.Players.Count} players and a budget of £{userTeam.Budget} Million ##");
         var playersNeeded = UserTeam.MaxPlayers - userTeam.Players.Count;
         if (playersNeeded > 0) Console.WriteLine($"You need to add {playersNeeded} players.");
     }
